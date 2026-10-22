@@ -1,0 +1,92 @@
+[
+ [
+  "Home page lists 12 movies",
+  "PASS",
+  ""
+ ],
+ [
+  "Search and language filter",
+  "PASS",
+  ""
+ ],
+ [
+  "Register new user",
+  "PASS",
+  ""
+ ],
+ [
+  "Logout, bad login rejected, good login",
+  "PASS",
+  ""
+ ],
+ [
+  "Movie detail with shows and live prices",
+  "PASS",
+  ""
+ ],
+ [
+  "Add movie to watchlist",
+  "PASS",
+  ""
+ ],
+ [
+  "Seat map renders and recommendation selects 3 seats",
+  "PASS",
+  ""
+ ],
+ [
+  "Double booking prevented in UI (seat taken by another user)",
+  "PASS",
+  ""
+ ],
+ [
+  "Confirm booking of remaining seats",
+  "PASS",
+  ""
+ ],
+ [
+  "Cancel booking",
+  "PASS",
+  ""
+ ],
+ [
+  "Upload movie memory for a watched booking",
+  "PASS",
+  ""
+ ],
+ [
+  "Post review after attending a show",
+  "PASS",
+  ""
+ ],
+ [
+  "Notifications and genre preferences",
+  "PASS",
+  ""
+ ],
+ [
+  "Customer redirected away from admin dashboard",
+  "PASS",
+  ""
+ ],
+ [
+  "Admin login, dashboard, repricing and audit",
+  "PASS",
+  ""
+ ],
+ [
+  "Admin: pricing config, show scheduling, add movie, users",
+  "PASS",
+  ""
+ ],
+ [
+  "Responsive layout at 390px (no horizontal overflow)",
+  "PASS",
+  ""
+ ],
+ [
+  "No JavaScript errors in console",
+  "PASS",
+  ""
+ ]
+]

@@ -1,0 +1,31 @@
+graph ER {
+  layout=neato; overlap=false; splines=true; sep="+8"; node [fontname="Helvetica", fontsize=11]; edge [fontname="Helvetica", fontsize=9, len=1.6];
+  node [shape=box, style=filled, fillcolor="#e8f0ff"];
+  Theatre; Screen; Movie; Genre; Users [label="User"]; Admin; Booking; Payment; Review; Notification; Pricing_Config;
+  Seat [peripheries=2, fillcolor="#fff3d6"]; Show [fillcolor="#e8f0ff"]; Movie_Memory; Demand_Analysis [peripheries=2, fillcolor="#fff3d6"]; Price_History [peripheries=2, fillcolor="#fff3d6"];
+  node [shape=diamond, style=filled, fillcolor="#f4f4f4", fontsize=9];
+  Has; Contains [peripheries=2]; Hosts; ScheduledAs [label="Scheduled\nAs"]; BelongsTo [label="Belongs\nTo"]; Prefers; Makes; BookedFor [label="Booked\nFor"]; Includes; PaidVia [label="Paid\nVia"];
+  Writes; Receives; Uploads; Generates; TaggedIn [label="Tagged\nIn"]; Gets; Saves; AnalyzedAs [label="Analyzed\nAs", peripheries=2]; PriceLog [label="Price\nLog", peripheries=2]; Manages; Creates; Sets;
+  Theatre -- Has [label="1"]; Has -- Screen [label="N"];
+  Screen -- Contains [label="1"]; Contains -- Seat [label="N"];
+  Screen -- Hosts [label="1"]; Hosts -- Show [label="N"];
+  Movie -- ScheduledAs [label="1"]; ScheduledAs -- Show [label="N"];
+  Movie -- BelongsTo [label="M"]; BelongsTo -- Genre [label="N"];
+  Users -- Prefers [label="M"]; Prefers -- Genre [label="N"];
+  Users -- Makes [label="1"]; Makes -- Booking [label="N"];
+  Show -- BookedFor [label="1"]; BookedFor -- Booking [label="N"];
+  Booking -- Includes [label="M"]; Includes -- Seat [label="N"];
+  Booking -- PaidVia [label="1"]; PaidVia -- Payment [label="1"];
+  Users -- Writes [label="1"]; Writes -- Review [label="N"];
+  Movie -- Receives [label="1"]; Receives -- Review [label="N"];
+  Users -- Uploads [label="1"]; Uploads -- Movie_Memory [label="N"];
+  Booking -- Generates [label="1"]; Generates -- Movie_Memory [label="N"];
+  Movie -- TaggedIn [label="1"]; TaggedIn -- Movie_Memory [label="N"];
+  Users -- Gets [label="1"]; Gets -- Notification [label="N"];
+  Users -- Saves [label="M"]; Saves -- Movie [label="N"];
+  Show -- AnalyzedAs [label="1"]; AnalyzedAs -- Demand_Analysis [label="N"];
+  Show -- PriceLog [label="1"]; PriceLog -- Price_History [label="N"];
+  Admin -- Manages [label="1"]; Manages -- Movie [label="N"];
+  Admin -- Creates [label="1"]; Creates -- Show [label="N"];
+  Admin -- Sets [label="1"]; Sets -- Pricing_Config [label="N"];
+}

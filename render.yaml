@@ -1,0 +1,18 @@
+# Render.com blueprint (free web service). New > Blueprint > pick this repo.
+services:
+  - type: web
+    name: smart-movie-booking
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn wsgi:app --workers 1 --threads 8 --bind 0.0.0.0:$PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: DATABASE_PATH
+        value: /tmp/smartmovie.db      # free tier has no persistent disk: demo data is re-seeded on restart
+      - key: PYTHON_VERSION
+        value: 3.12.3

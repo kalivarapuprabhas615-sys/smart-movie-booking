@@ -1,0 +1,61 @@
+### -- Q1 Seats currently booked per upcoming-style show with occupancy %
+rows: 64
+   (3, 'Dangal', '2026-10-21', '15:00', 80, 61, 76.3)
+   (4, 'Kantara', '2026-10-21', '19:00', 80, 61, 76.3)
+   (19, 'Interstellar', '2026-10-22', '11:00', 80, 60, 75.0)
+   (29, 'Dangal', '2026-10-22', '11:00', 100, 73, 73.0)
+   (10, 'Baahubali: The Beginning', '2026-10-21', '22:15', 96, 70, 72.9)
+### -- Q2 Revenue per movie (successful payments only)
+rows: 12
+   ('Baahubali: The Beginning', 107, 86400.0)
+   ('Jai Bhim', 98, 78300.0)
+   ('3 Idiots', 103, 76720.0)
+   ('The Dark Knight', 89, 73680.0)
+   ('Interstellar', 93, 65010.0)
+### -- Q3 Movies with their genres and average rating (join over the M:N bridge)
+rows: 3
+   ('Inception', 'Action', 3.75)
+   ('Inception', 'Sci-Fi', 3.75)
+   ('Inception', 'Thriller', 3.75)
+### -- Q4 Heavy customers: more than 250 seats booked in total (HAVING)
+rows: 4
+   ('Arjun Verma', 273)
+   ('Rohan Iyer', 268)
+   ('Sneha Menon', 267)
+   ('Ananya Krishnan', 256)
+### -- Q5 Double-booking audit: must return NO rows (a seat appearing twice for one show)
+rows: 0
+### -- Q6 Shows whose price was moved by the engine, with the largest change first
+rows: 43
+   (38, 'Interstellar', 330.0, 264.0, -66.0, 'demand_recalculation (clamped to min)')
+   (40, 'Vikram', 330.0, 264.0, -66.0, 'demand_recalculation (clamped to min)')
+   (59, 'Baahubali: The Beginning', 330.0, 269.0, -61.0, 'demand_recalculation')
+   (36, 'Jai Bhim', 300.0, 240.0, -60.0, 'demand_recalculation (clamped to min)')
+   (54, 'Jai Bhim', 330.0, 271.0, -59.0, 'demand_recalculation')
+### -- Q7 Movies nobody has put on a watchlist (correlated NOT EXISTS)
+rows: 1
+   (4, 'Baahubali: The Beginning')
+### -- Q8 Users who have never written a review (set difference via NOT IN)
+rows: 1
+   (1, 'Aarav Sharma')
+### -- Q9 Payment-method split
+rows: 4
+   ('UPI', 418, 322520.0)
+   ('CARD', 227, 170720.0)
+   ('WALLET', 224, 162680.0)
+   ('NETBANKING', 204, 151060.0)
+### -- Q10 Latest demand snapshot per show (subquery on the weak entity)
+rows: 43
+   (24, 0.57, 0.4, 0.83, 3.57, 0.6227)
+   (31, 0.4125, 0.2, 0.83, 0.32, 0.5368)
+   (22, 0.3, 0.2, 0.84, 0.32, 0.4933)
+   (27, 0.42, 0.2, 0.51, 0.32, 0.4918)
+   (23, 0.52, 0.0, 0.56, 0.32, 0.4893)
+### -- Q11 Theatre -> screen -> seat inventory
+rows: 4
+   ('Orion Cinemas', 'Chennai', 2, 220)
+   ('Galaxy Screens', 'Bengaluru', 2, 196)
+   ('Lumiere Grand', 'Hyderabad', 2, 180)
+   ('Starlight Multiplex', 'Vellore', 2, 180)
+### -- Q12 Integrity check: bookings whose total_amount differs from their payment amount (expected: none)
+rows: 0
