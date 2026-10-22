@@ -20,7 +20,7 @@ Team: **Kalivarapu Prabhas (24BCE2279)**, **Shanmukha Abhinav (24BAI0238)**
 
 > **Oracle vs SQLite.** The Oracle scripts are the lab deliverable and were written for Oracle 11g+. The running website uses
 > SQLite (identical tables/constraints) so it can run and deploy anywhere with zero setup. The Oracle scripts were **not executed**
-> by the authors of this repo's generation environment (no Oracle server available) – run them in your lab and fix any
+> in the environment where this code was generated (no Oracle server available there) – run them in your lab and fix any
 > version-specific issue; see `docs/SETUP.md`.
 
 ## Quick start (local)
